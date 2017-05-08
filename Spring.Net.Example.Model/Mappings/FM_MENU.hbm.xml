@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Spring.Net.Example.Model.Table.FM_MENU,Spring.Net.Example.Model" table="FM_MENU">
+    <id name="ID" column="ID" type="Int32" length="64">
+      <generator class="sequence">
+        <param name="sequence">SEQ_FM_MENU</param>
+      </generator>
+    </id>
+    <property name="MENU_NAME" column="MENU_NAME" type="String" length="128" />
+    <property name="MENU_TYPE" column="MENU_TYPE" type="String" length="1" />
+    <property name="OPERATION_TYPE" column="OPERATION_TYPE" type="String" length="1" />
+    <property name="SORT" column="SORT" type="Int32"  />
+    <property name="PARENT_ID" column="PARENT_ID" type="Int32" />
+    <property name="REMARK" column="REMARK" type="String" length="200" />
+    <property name="STATE" column="STATE" type="String" length="1" />
+    <property name="VIEW_PARAMS" column="VIEW_PARAMS" type="String" length="1000" />
+    <property name="VALIDATE_CODE" column="VALIDATE_CODE" type="String" length="128" />
+    <property name="HANDLER" column="HANDLER" type="String" length="128" />
+    <property name="MENU_VIEW" column="MENU_VIEW" type="String" length="128" />
+    <property name="ICON" column="ICON" type="String" length="128" />
+    <property name="IS_SYS_MENU" column="IS_SYS_MENU" type="String" length="1" />
+    <property name="SYS_APP_KEY" column="SYS_APP_KEY" type="String" length="64" />
+    <set name="Roles" table="FM_ROLE_MENU">
+      <key column="MENU_ID" foreign-key="FK_MENU"/>
+      <many-to-many column="ROLE_ID"  class="Spring.Net.Example.Model.Table.FM_ROLE,Spring.Net.Example.Model" foreign-key="FK_ROLE"/>
+    </set>
+  </class>
+</hibernate-mapping>

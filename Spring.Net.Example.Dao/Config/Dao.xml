@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns='http://www.springframework.net'
+         xmlns:d="http://www.springframework.net/database"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <!-- * 用于添加OracleManaged的驱动到Spring.Data 的dbProviders.xml配置文件-->
+  <d:additionalProviders resource="assembly://Spring.Net.Example.Dao/Spring.Net.Example.Dao/Config.DbProviders.xml"/>
+
+  <!-- 连接串定义 -->
+  <d:provider id="DbProvider" provider="OracleManaged"
+               connectionString="Data Source=127.0.0.1:1521/orcl;Persist Security Info=True;User ID=star;Password=Star0203"  />
+  <!--connectionString="Data Source=127.0.0.1:1521/orcl;Persist Security Info=True;User ID=star;Password=Star0203" connectionString="Data Source=${db.datasource};Persist Security Info=True;User ID=${db.userId};Password=${db.password}"-->
+  <!--Data Source=(DESCRIPTION = (ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(HOST = ${db.datasource})(PORT = ${db.port})) )(CONNECT_DATA =(SERVICE_NAME = ${db.servicename}) ) );Persist Security Info=True;User ID=${db.userid};Password=${db.password};Unicode=True-->
+
+  <object id="TransactionManager"
+            type="Spring.Data.Core.AdoPlatformTransactionManager, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+  </object>
+
+  <!--<object id="autoProxyCreator"
+            type="Spring.Aop.Framework.AutoProxy.DefaultAdvisorAutoProxyCreator, Spring.Aop">
+
+  </object>
+
+  <object id="transactionAdvisor"
+          type="Spring.Transaction.Interceptor.TransactionAttributeSourceAdvisor, Spring.Data"
+          autowire="constructor">
+  </object>
+
+
+  --><!-- Transaction Interceptor --><!--
+  <object id="transactionInterceptor"
+          type="Spring.Transaction.Interceptor.TransactionInterceptor, Spring.Data">
+    <property name="TransactionManager" ref="transactionManager"/>
+
+    <property name="TransactionAttributeSource" ref="attributeTransactionAttributeSource"/>
+  </object>
+
+  <object id="attributeTransactionAttributeSource"
+          type="Spring.Transaction.Interceptor.AttributesTransactionAttributeSource, Spring.Data">
+  </object>-->
+
+
+  <!-- AdoTemplate 定义 -->
+  <object id="adoTemplate" type="Spring.Data.Generic.AdoTemplate, Spring.Data">
+    <property name="DbProvider" ref="DbProvider"/>
+    <property name="DataReaderWrapperType" value="Spring.Data.Support.NullMappingDataReader, Spring.Data"/>
+  </object>
+
+  <object id="userDao" type="Spring.Net.Example.Dao.UserDao, Spring.Net.Example.Dao">
+    <!-- 注入 AdoTemplate -->
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  <object id="roleDao" type="Spring.Net.Example.Dao.Sys.RoleDao, Spring.Net.Example.Dao">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  <object id="roleMenuDao" type="Spring.Net.Example.Dao.Sys.RoleMenuDao, Spring.Net.Example.Dao">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  <object id="userRoleDao" type="Spring.Net.Example.Dao.Sys.UserRoleDao, Spring.Net.Example.Dao">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  <object id="menuDao" type="Spring.Net.Example.Dao.Sys.MenuDao, Spring.Net.Example.Dao">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+  <object id="functionConfigDao" type="Spring.Net.Example.Dao.Sys.FunctionConfigDao, Spring.Net.Example.Dao">
+    <property name="AdoTemplate" ref="adoTemplate"/>
+  </object>
+</objects>

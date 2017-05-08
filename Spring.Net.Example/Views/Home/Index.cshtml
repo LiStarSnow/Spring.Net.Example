@@ -1,0 +1,282 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/unslider-dots.css" rel="stylesheet" />
+<link href="~/Content/unslider.css" rel="stylesheet" />
+<script src="http://www.bootcss.com/p/unslider/unslider.min.js"></script>
+<style>
+    .banner {
+        position: relative;
+        width: 100%;
+        overflow: auto;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+        color: rgba(255,255,255,.6);
+        text-shadow: 0 0 1px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.3);
+        background: #5b4d3d;
+        box-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
+
+        .banner ul {
+            list-style: none;
+            width: 300%;
+        }
+
+            .banner ul li {
+                display: block;
+                float: left;
+                width: 33%;
+                min-height: 350px;
+                -o-background-size: 100% 100%;
+                -ms-background-size: 100% 100%;
+                -moz-background-size: 100% 100%;
+                -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+                box-shadow: inset 0 -3px 6px rgba(0,0,0,.1);
+            }
+
+        .banner .inner {
+            padding: 160px 0 110px;
+        }
+
+        .banner h1, .banner h2 {
+            font-size: 40px;
+            line-height: 52px;
+            color: #fff;
+        }
+
+        .banner .btn {
+            display: inline-block;
+            margin: 25px 0 0;
+            padding: 9px 22px 7px;
+            clear: both;
+            color: #fff;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid rgba(255,255,255,.4);
+            border-radius: 5px;
+        }
+
+            .banner .btn:hover {
+                background: rgba(255,255,255,.05);
+            }
+
+            .banner .btn:active {
+                -webkit-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+                -moz-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+                -ms-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+                -o-filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+                filter: drop-shadow(0 -1px 2px rgba(0,0,0,.5));
+            }
+
+        .banner .btn, .banner .dot {
+            -webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+            -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+            -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+            -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,.3));
+        }
+
+        .banner .dots {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+        }
+
+            .banner .dots li {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                margin: 0 4px;
+                text-indent: -999em;
+                border: 2px solid #fff;
+                border-radius: 6px;
+                cursor: pointer;
+                opacity: .4;
+                -webkit-transition: background .5s, opacity .5s;
+                -moz-transition: background .5s, opacity .5s;
+                transition: background .5s, opacity .5s;
+            }
+
+                .banner .dots li.active {
+                    background: #fff;
+                    opacity: 1;
+                }
+
+        .banner .arrows {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #fff;
+        }
+
+        .banner .arrow {
+            display: inline;
+            padding-left: 10px;
+            cursor: pointer;
+        }
+</style>
+<div class="banner">
+    <ul>
+        <li style="background-image: url('//www.bootcss.com/p/unslider/img/sunset.jpg');">
+            @*<div class="inner">
+                    <h1>The jQuery slider that just slides.</h1>
+                    <p>就是这个不到3kb的插件！没有奇特的特效或无用的标签。</p>
+
+                    <a class="btn" href="#download">下载</a>
+                </div>*@
+        </li>
+
+        <li style="background-image: url('//www.bootcss.com/p/unslider/img/wood.jpg');">
+            @*<div class="inner">
+                    <h1>Fluid, flexible, fantastically minimal.</h1>
+                    <p>Use any HTML in your slides, extend with CSS. You have full control.</p>
+
+                    <a class="btn" href="#download">下载</a>
+                </div>*@
+        </li>
+
+        <li style="background-image: url('//www.bootcss.com/p/unslider/img/subway.jpg');">
+            @*<div class="inner">
+                    <h1>开源</h1>
+                    <p>Unslider的所有源码都托管在GitHub上。</p>
+
+                    <a class="btn" href="//github.com/idiot/unslider">参与</a>
+                </div>*@
+        </li>
+
+        <li style="background-image: url('//www.bootcss.com/p/unslider/img/shop.jpg');">
+            @*<div class="inner">
+                    <h1>Uh, that’s about it.</h1>
+                    <p>I just wanted to show you another slide.</p>
+
+                    <a class="btn" href="#download">下载</a>
+                </div>*@
+        </li>
+    </ul>
+</div>
+<div class="container body-content">
+<div class="panel panel-default" style="border-color: transparent;    border-color: transparent;border-bottom: 5px solid #aba8a8;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <h3 class="page-header">@ViewBag.Message</h3>
+                <div class="media" style="width:100%">
+                    <a class="media-left" href="#">
+                        <img src="~/files/148126204194.jpg"  style="width:270px;height:160px;" />
+                        fefefefefe
+                    </a>
+                    <div class="media-body" style="width:80%">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">@DateTime.Now.ToString("yyyy-MM-dd")</span>
+                                Cras justo odio1
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio2
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio3
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                Cras justo odio4
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        Basic panel example2
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>
+</div>
+<script>
+    if (window.chrome) {
+        $('.banner li').css('background-size', '100% 100%');
+    }
+    $(function () {
+        $('.banner').unslider({
+            arrows: true,
+            fluid: true,
+            dots: true
+        });
+
+    //    //  Find any element starting with a # in the URL
+    //    //  And listen to any click events it fires
+    //    $('a[href^="#"]').click(function () {
+    //        //  Find the target element
+    //        var target = $($(this).attr('href'));
+
+    //        //  And get its position
+    //        var pos = target.offset(); // fallback to scrolling to top || {left: 0, top: 0};
+
+    //        //  jQuery will return false if there's no element
+    //        //  and your code will throw errors if it tries to do .offset().left;
+    //        if (pos) {
+    //            //  Scroll the page
+    //            $('html, body').animate({
+    //                scrollTop: pos.top,
+    //                scrollLeft: pos.left
+    //            }, 1000);
+    //        }
+
+    //        //  Don't let them visit the url, we'll scroll you there
+    //        return false;
+    //    });
+    });
+</script>

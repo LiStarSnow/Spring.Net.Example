@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Spring.Net.Example.Model.Table.FM_ROLE,Spring.Net.Example.Model" table="FM_ROLE" lazy="true">
+    <id name="ID" column="ID" type="Int32">
+      <generator class="sequence">
+        <param name="sequence">SEQ_FM_ROLE</param>
+      </generator>
+    </id>
+    <property name="ROLE_NAME" column="ROLE_NAME" type="String" length="64" />
+    <property name="REMARK" column="REMARK" type="String" length="126" />
+    <property name="STATE" column="STATE" type="String" length="2" />
+    <property name="SYS_APP_KEY" column="SYS_APP_KEY" type="String" length="64" />
+    <set  name="Users" table="FM_USER_ROLE" inverse="true" cascade="delete" ><!--Users 表为主控方，插入顺序，先Users后Roles-->
+      <key column="ROLE_ID" foreign-key="FK_ROLE"/>
+      <many-to-many column="USER_ID" class="Spring.Net.Example.Model.Table.FM_USER,Spring.Net.Example.Model" foreign-key="FK_USER"/>
+    </set>
+    <set  name="Menus" table="FM_ROLE_MENU" batch-size="5">
+      <key column="ROLE_ID" foreign-key="FK_ROLE"/>
+      <many-to-many column="MENU_ID" order-by="SORT ASC" class="Spring.Net.Example.Model.Table.FM_MENU,Spring.Net.Example.Model" foreign-key="FK_MENU"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+  <object id="OracleManaged" type="Spring.Data.Common.DbProvider, Spring.Data" singleton="false">
+    <constructor-arg name="dbMetaData">
+      <object type="Spring.Data.Common.DbMetadata">
+        <constructor-arg name="productName" value="Oracle Data Provider for .NET, Managed Driver" />
+        <constructor-arg name="assemblyName" value="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="connectionType" value="Oracle.ManagedDataAccess.Client.OracleConnection, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="commandType" value="Oracle.ManagedDataAccess.Client.OracleCommand, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="parameterType" value="Oracle.ManagedDataAccess.Client.OracleParameter, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="dataAdapterType" value="Oracle.ManagedDataAccess.Client.OracleDataAdapter, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="commandBuilderType" value="Oracle.ManagedDataAccess.Client.OracleCommandBuilder, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="commandBuilderDeriveParametersMethod" value="DeriveParameters" />
+        <constructor-arg name="parameterDbType" value="Oracle.ManagedDataAccess.Client.OracleDbType, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="parameterDbTypeProperty" value="OracleDbType" />
+        <constructor-arg name="parameterIsNullableProperty" value="IsNullable" />
+        <constructor-arg name="parameterNamePrefix" value=":" />
+        <constructor-arg name="exceptionType" value="Oracle.ManagedDataAccess.Client.OracleException, Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />
+        <constructor-arg name="useParameterNamePrefixInParameterCollection" value="false" />
+        <constructor-arg name="useParameterPrefixInSql" value="true" />
+        <constructor-arg name="bindByName" value="true" />
+        <!-- this is only true for .net 1.1 kept it here just in case we want to revert back to this strategy for
+             obtaining error codes-->
+        <constructor-arg name="errorCodeExceptionExpression" value="Number.ToString()" />
+        <property name="ErrorCodes.BadSqlGrammarCodes">
+          <value>
+            900,903,904,917,936,942,17006
+          </value>
+        </property>
+        <property name="ErrorCodes.InvalidResultSetAccessCodes">
+          <value>
+            17003
+          </value>
+        </property>
+        <property name="ErrorCodes.DuplicateKeyCodes">
+          <value>
+            1
+          </value>
+        </property>
+        <property name="ErrorCodes.DataAccessResourceFailureCodes">
+          <value>
+            17002,17447
+          </value>
+        </property>
+        <property name="ErrorCodes.DataIntegrityViolationCodes">
+          <value>
+            1,1400,1722,2291,2292
+          </value>
+        </property>
+        <property name="ErrorCodes.CannotAcquireLockCodes">
+          <value>
+            54
+          </value>
+        </property>
+        <property name="ErrorCodes.CannotSerializeTransactionCodes">
+          <value>
+            8177
+          </value>
+        </property>
+        <property name="ErrorCodes.DeadlockLoserCodes">
+          <value>
+            60
+          </value>
+        </property>
+      </object>
+    </constructor-arg>
+  </object>
+</objects>

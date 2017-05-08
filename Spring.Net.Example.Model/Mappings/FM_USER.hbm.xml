@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Spring.Net.Example.Model.Table.FM_USER,Spring.Net.Example.Model" table="FM_USER" lazy="true" >
+    <id name="ID" column="ID" type="Int32">
+      <generator class="sequence">
+        <param name="sequence">SEQ_FM_USER</param>
+      </generator>
+    </id>
+    <property name="USER_CODE" column="USER_CODE" type="String" length="20" />
+    <property name="USER_NAME" column="USER_NAME" type="String" length="100" />
+    <property name="USER_PASSWORD" column="USER_PASSWORD" type="String" length="200" />
+    <property name="USER_TELEPHONE" column="USER_TELEPHONE" type="String" length="30" />
+    <property name="USER_EMAIL" column="USER_EMAIL" type="String" length="64" />
+    <property name="USER_TYPE" column="USER_TYPE" type="String" length="1" />
+    <property name="SORT" column="SORT" type="Int32" />
+    <property name="REMARK" column="REMARK" type="String" length="256" />
+    <property name="ENABLE_FLAG" column="ENABLE_FLAG" type="String" length="1" />
+    <property name="ISSYS_FLAG" column="ISSYS_FLAG" type="String" length="1" />
+    <property name="ERROR_TIMES" column="ERROR_TIMES" type="Int32"/>
+    <property name="LAST_ERROR_TIME" column="LAST_ERROR_TIME" type="DateTime" />
+    <property name="LATEST_UPDATE_TIME" column="LATEST_UPDATE_TIME" type="DateTime" />
+    <property name="ORG_ID" column="ORG_ID" type="String" length="32" />
+    <property name="STARTDATE" column="STARTDATE" type="DateTime" />
+    <property name="EXPIRYDATE" column="EXPIRYDATE" type="DateTime" />
+    <property name="LATEST_PASSWORD_UPDATE" column="LATEST_PASSWORD_UPDATE" type="DateTime" />
+    <property name="LOGIN_KEY" column="LOGIN_KEY" type="String" length="15" />
+    <list  name="Roles" table="FM_USER_ROLE" lazy="true" inverse="false"  fetch="select"  batch-size="5">
+      <!--Roles 表为受控方，插入顺序，先Users后Roles-->
+      <key column="USER_ID" foreign-key="FK_USER"/>
+      <list-index />
+      <many-to-many column="ROLE_ID" class="Spring.Net.Example.Model.Table.FM_ROLE,Spring.Net.Example.Model" foreign-key="FK_ROLE"/>
+      <!--<many-to-many column="ROLE_ID" class="Spring.Net.Example.Model.Table.FM_ROLE,Spring.Net.Example.Model" foreign-key="FK_ROLE"/>-->
+    </list>
+  </class>
+</hibernate-mapping>

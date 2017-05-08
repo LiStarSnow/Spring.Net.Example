@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @*@Styles.Render("~/Content/css")*@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img alt="Brand" src="..."></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">首页</a></li>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/products/silverback">企业简介</a></li>
+                            <li><a href="/products/fontdeck">核心团队</a></li>
+                            <li><a href="/products/fontdeck">发展历程</a></li>
+                            <li><a href="/products/fontdeck">企业文化</a></li>
+                            <li><a href="/products/fontdeck">合作伙伴</a></li>
+                            <li><a href="/products/fontdeck">投资者关系</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单2 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/services/design">公司新闻</a></li>
+                            <li><a href="/services/fontdeck">行业新闻</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单3 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">磁悬浮轴承</a></li>
+                            <li><a href="#">三元流叶轮</a></li>
+                            <li><a href="#">高速电机</a></li>
+                            <li><a href="#">智能控制系统</a></li>
+                            @*<li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">下拉菜单4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/services/design">磁悬浮鼓风机</a></li>
+                            <li><a href="/services/fontdeck">规格型号</a></li>
+                            <li><a href="/services/design">特点优势</a></li>
+                            <li><a href="/services/fontdeck">节能核算</a></li>
+                            <li><a href="/services/fontdeck">应用行业</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+    @*<div class="container body-content">*@
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+    </footer>
+    @*</div>*@
+
+
+
+</body>
+</html>

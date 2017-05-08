@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Spring.Net.Example.Model.Table.CFG_FUNC,Spring.Net.Example.Model" table="CFG_FUNC" lazy="true">
+    <id name="ID" column="ID" type="Int32">
+      <generator class="sequence">
+        <param name="sequence">SEQ_CFG_FUNC</param>
+      </generator>
+    </id>
+    <property name="GROUP_NAME" column="GROUP_NAME" type="String" length="128" />
+    <property name="NAME" column="NAME" type="String" length="128" />
+    <property name="REMARK" column="REMARK" type="String" length="512" />
+    <property name="VALUE" column="VALUE" type="String" length="128" />
+    <property name="KEY" column="KEY" type="String" length="128" />
+    <property name="IS_EDIT" column="IS_EDIT" type="String" length="2" />
+    <property name="IS_DISPLAY" column="IS_DISPLAY" type="String" length="2" />
+    <property name="CONTROL_TYPE" column="CONTROL_TYPE" type="String" length="2" />
+    <property name="VERIFY" column="VERIFY" type="String" length="4000" />
+    <property name="GROUP_SORT" column="GROUP_SORT" type="String" length="2" />
+    <property name="TAB_ID" column="TAB_ID" type="String" length="2" />
+    <property name="IS_CLIENT_USE" column="IS_CLIENT_USE" type="String" length="2" />
+    <property name="VALUE_TYPE" column="VALUE_TYPE" type="String" length="2" />
+    <property name="SORT" column="SORT" type="Decimal" />
+    <property name="SYS_APP_KEY" column="SYS_APP_KEY" type="String" length="64" />
+  </class>
+</hibernate-mapping>

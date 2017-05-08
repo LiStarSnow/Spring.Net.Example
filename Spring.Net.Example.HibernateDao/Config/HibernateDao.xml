@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns='http://www.springframework.net'
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object id="userDao" type="Spring.Net.Example.HibernateDao.UserHibernateDao, Spring.Net.Example.HibernateDao"  >
+    <!--注入 SessionFactory-->
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+  <object id="menuDao" type="Spring.Net.Example.HibernateDao.Sys.MenuDao, Spring.Net.Example.HibernateDao">
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+  <object id="roleDao" type="Spring.Net.Example.HibernateDao.Sys.RoleDao, Spring.Net.Example.HibernateDao">
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+  <object id="roleMenuDao" type="Spring.Net.Example.HibernateDao.Sys.RoleMenuDao, Spring.Net.Example.HibernateDao">
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+  <object id="userRoleDao" type="Spring.Net.Example.HibernateDao.Sys.UserRoleDao, Spring.Net.Example.HibernateDao">
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+  <object id="functionConfigDao" type="Spring.Net.Example.HibernateDao.Sys.FunctionConfigDao, Spring.Net.Example.HibernateDao">
+    <!--<property name="SessionFactory" ref="NHibernateSessionFactory"/>-->
+  </object>
+</objects>

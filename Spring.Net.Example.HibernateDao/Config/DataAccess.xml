@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx"  >
+  <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd"-->
+
+  <!-- * 用于添加OracleManaged的驱动到Spring.Data 的dbProviders.xml配置文件-->
+  <!--<db:additionalProviders resource="assembly://Spring.Net.Example.HibernateDao/Spring.Net.Example.HibernateDao/Config.DbProviders.xml"/>-->
+
+  <!-- 通过主应用程序的上下文配置文件引用 -->
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="spring/databaseSettings"/>
+  </object>
+
+  <!-- 数据库的配置 -->
+  <db:provider id="DbProvider" provider="System.Data.OracleClient"
+               connectionString="Data Source=127.0.0.1:1521/orcl;Persist Security Info=True;User ID=star;Password=Star0203"  />
+
+  <!-- NHibernate 配置 -->
+
+  <!-- 可以通过 name 为其指定别名 name="SessionFactory" -->
+  <object id="NHibernateSessionFactory"
+          type="Spring.Data.NHibernate.LocalSessionFactoryObject,Spring.Data.NHibernate33">
+
+    <!-- 关于数据库连接的配置，直接使用 DbProvider 中的设置，这样，不需要为 Hibernate 再提供连接串和驱动 -->
+    <property name="DbProvider" ref="DbProvider"/>
+    <!-- 包含有映射文件的程序集，需要分析的hbm程序集名称 -->
+    <property name="MappingAssemblies">
+      <list>
+        <value>Spring.Net.Example.Model</value>
+      </list>
+    </property>
+
+    <!-- 其他的参数 -->
+    <property name="HibernateProperties">
+      <dictionary>
+        <!-- 方言 -->
+        <entry key ="hibernate.connection.provider " value="NHibernate.Connection.DriverConnectionProvider"/>
+        <entry key="dialect" value="NHibernate.Dialect.Oracle10gDialect"/>
+        <entry key="connection.driver_class" value="NHibernate.Driver.OracleClientDriver"/>
+        <!--<entry key="use_outer_join" value="true"/>-->
+        <entry key="use_proxy_validator" value="false" />
+        <entry key="show_sql" value="true"/>
+        <!--<entry key="hbm2ddl.auto" value="update"/>-->
+      </dictionary>
+    </property>
+
+    <!-- 必须增加此项说明，与 Spring 的声明式事务集成 -->
+    <property name="ExposeTransactionAwareSessionFactory" value="true" />
+
+  </object>
+
+  <object id="HibernateTransactionManager" type="Spring.Data.NHibernate.HibernateTransactionManager, Spring.Data.NHibernate33">
+    <property name="DbProvider" ref="DbProvider" />
+    <property name="sessionFactory" ref="NHibernateSessionFactory" />
+  </object>
+
+  <object id="TransactionInterceptor" type="Spring.Transaction.Interceptor.TransactionInterceptor, Spring.Data">
+    <property name="TransactionManager" ref="HibernateTransactionManager" />
+    <property name="TransactionAttributeSource">
+      <object type="Spring.Transaction.Interceptor.AttributesTransactionAttributeSource, Spring.Data" />
+    </property>
+  </object>
+
+  <!-- Exception translation object post processor 异常 --><!--
+  <object type=" Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor, Spring.Data "/>-->
+
+</objects>

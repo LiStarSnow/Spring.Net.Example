@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Spring.Net.Example.Model.Table.FM_USER_ROLE,Spring.Net.Example.Model" table="FM_USER" lazy="false">
+    <id name="ID" column="ID" type="String" length="64">
+      <generator class="sequence">
+        <param name="sequence">SEQ_FM_USER_ROLE</param>
+      </generator>
+    </id>
+    <property name="USER_ID" column="USER_ID" type="String" length="64" />
+    <property name="ROLE_ID" column="ROLE_ID" type="Int32"/>
+    <set name="Users" table="FM_USER" >
+      <key column="RoleUsers" foreign-key="FK_USER"/>
+      <one-to-many class="Spring.Net.Example.Model.Table.FM_USER_ROLE,Spring.Net.Example.Model"/>
+    </set>
+  </class>
+</hibernate-mapping>

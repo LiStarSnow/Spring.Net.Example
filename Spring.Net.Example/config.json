@@ -1,0 +1,43 @@
+﻿{
+  "AppSettings": {
+    "AppTitle": "Spring.net测试系统",
+    "Version": "V2.0",
+    "IsDev": "1",
+    "DefaultMenuId": "0",
+    "Theme": "all",
+    "AjaxTimeOut": "900000"
+  },
+  "SsoApp": {
+    //APP集成界面标题
+    "AppTitle": "Spring.net测试系统",
+    //APP集成界面logo
+    "Logo": "/images/insu_logo.png"
+  },
+  "Fm": {
+    "AppKey": "0",
+    //登录页面
+    "LoginUrl": "~/login",
+    //退出页面
+    "LoginOutUrl": "~/loginout",
+    "CookieStartWith": "fm-",
+    "Sso": {
+      "AesKey": "C50B3C89CB21F4F1422FF158A5B42D0E8DB8CB5CDA1742572A487D9401E3400267682B202B746511891C1BAF47F8D25C07F6C39A104696DB51F17C529AD3CABE"
+    },
+    "AllowReferrerHost": {
+      "1": "localhost",
+      "2": "10.117.130.150"
+    },
+    "AppNameInfo": {
+      //登录界面默认标题
+      "_default": "Spring.net测试系统"
+      //集成管理平台跳转登录界面显示标题
+      //"/home/index": "Spring.net测试系统"
+    },
+    "AppIcoInfo": {
+      //登录界面默认logo
+      "_default": "/images/insu_logo.png"
+      //集成管理平台跳转登录界面显示logo
+      //"/home/index": "/images/login_logo.png"
+    }
+  }
+}

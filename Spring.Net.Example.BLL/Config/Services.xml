@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<objects xmlns="http://www.springframework.net"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object id="sysService" type="Spring.Net.Example.BLL.Sys.SysService, Spring.Net.Example.BLL"> 
+    <!--<constructor-arg name="functionConfigDao" ref="functionConfigDao"/>-->
+    <property name="FunctionConfigDao" ref="functionConfigDao" />
+  </object>
+  <object id="menuService" type="Spring.Net.Example.BLL.Sys.MenuService, Spring.Net.Example.BLL">
+    <property name="MenuDao" ref="menuDao" />
+  </object>
+  <object id="userService" type="Spring.Net.Example.BLL.UserService, Spring.Net.Example.BLL">
+    <property  name="UserDao" ref="userDao"/>
+    <property  name="UserRoleDao" ref="userRoleDao"/>
+    <!--<property  name="TransactionManager" ref="TransactionManager"/>-->
+  </object>
+  <object id="roleService" type="Spring.Net.Example.BLL.Sys.RoleService, Spring.Net.Example.BLL">
+    <property  name="RoleDao" ref="roleDao"/>
+  </object>
+  <object id="userRoleService" type="Spring.Net.Example.BLL.Sys.UserRoleService, Spring.Net.Example.BLL">
+    <property  name="UserRoleDao" ref="userRoleDao"/>
+    <!--<property  name="TransactionManager" ref="TransactionManager"/>-->
+  </object>
+  <object id="userAllotService" type="Spring.Net.Example.BLL.Shared.UserAllotService, Spring.Net.Example.BLL">
+    <property name="RoleMenuDao" ref="roleMenuDao" />
+    <property name="UserDao" ref="userDao"/>
+  </object>
+</objects>
